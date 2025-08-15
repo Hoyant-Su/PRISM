@@ -1,11 +1,2 @@
-# Ignore everything
-*
-
-# But keep scripts
-!*.py
-!*.sh
-!*.yaml
-!*.yml
-
 # Keep this .gitignore file itself
 !.gitignore

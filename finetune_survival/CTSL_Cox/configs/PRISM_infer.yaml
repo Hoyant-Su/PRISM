@@ -1,0 +1,82 @@
+base_config:
+  work_space: 'finetune_survival/CTSL_Cox'
+  public_feature_processing_root: 'finetune_survival/CTSL_Cox/features'
+model:
+  #name: "CTSL"
+  #name: "3DINO"
+  #name: "OpticalPromptedUniformer"
+  #name: "OpticalPromptedCTSL"
+  #name: "CTSL_Projector"
+  #name: "CTSL_Projector_cls"
+  #name: "OpticalPromptedUniformer-spatial_segment"
+  #name: "uniformer_distill"
+  name: "PRISM"
+  survival_head: "Cox"
+
+hyperparam:
+  seed: 256
+  #dataset: GLCCM
+  penalizer_search_range: [0.1]
+  threshold_search_range: [0.9]
+
+  # #dataset: AZCCM
+  # penalizer_search_range: [0.1]
+  # threshold_search_range: [0.95]
+
+  # #dataset: RJCCM
+  # penalizer_search_range: [0.05]
+  # threshold_search_range: [0.75]
+
+  # #dataset: TJCCM
+  # penalizer_search_range: [0.003]
+  # threshold_search_range: [0.5]
+
+
+setting: "internal"  #internal, external
+
+tricks:
+  apply_strata: False
+  apply_stepwise: False
+  feature_selection_method: "lasso"
+  fix_img: True
+
+data:
+  dataset: "gulou"
+  ## 📌 CTSL
+  #dl_csv: "ssl_pretraining/results/0220_vqvae/codebook/2025-02-19 14:59:59/output_features.csv"
+  # fixed seed
+  #dl_csv: "ssl_pretraining/results/0507_attention_viz/codebook/2025-05-07 08:23:04/output_features.csv"
+
+  ## 📌 3DINO
+  #dl_csv: "../SSL_medical/3DINO/shy_local/exp_0403_eval/output_features.csv"
+
+  ## 📌 OpticalPromptedUniformer
+  #dl_csv: "ssl_pretraining/results/0401_OpticalPromptedUniFormer/distill/2025-04-01 05:25:54/output_features.csv"
+
+  ## 📌 OpticalPromptedCTSL
+  #dl_csv: "ssl_pretraining/results/0416_vqvae/codebook/2025-04-16 15:34:20/output_features.csv"
+
+  ## 📌CTSL_Projector
+  #dl_csv: "ssl_pretraining/results/0423_vqvae/projector/2025-04-23 16:45:02/output_features.csv"
+  # CTSL_Projector cls
+  #dl_csv: "ssl_pretraining/results/0425_vqvae/projector/2025-04-30 06:19:11/output_features.csv"
+
+
+  ## 📌OpticalPromptedUniformer-spatial_segment
+  #dl_csv: "ssl_pretraining/results/0430_OpticalPromptedUniFormer_spatial_sampling/distill/2025-04-30 05:00:17/output_features.csv"
+
+
+  ## 📌uniformer_distill
+  #dl_csv: "ssl_pretraining/results/0507_attention_viz/distill/2025-05-14 07:49:45/output_features.csv"
+
+  ## 📌uniformer_projector
+  ##w/o prompt, (unfinished)
+  #dl_csv: "ssl_pretraining/results/0507_attention_viz/projector/2025-05-14 16:48:24/output_features_.csv"
+
+  ##multiple (3, sample_1)
+  #dl_csv: "ssl_pretraining/results/0507_attention_viz/projector/2025-05-14 17:30:27/output_features_Consider <Physiological>, <Pharmaceutical>, and <clinical> as anchors for your thought proce.csv"
+  inference_prompt: "sample_2" 
+  #sample_2
+  dl_csv: "ssl_pretraining/results/0507_attention_viz/projector/2025-05-14 17:30:27/output_features_biological-<Pharmaceutical>,-<Physiological> signals may be secondary here.csv"
+
+  ehr_group: "pharmacological"

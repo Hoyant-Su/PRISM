@@ -1,3 +1,4 @@
 # Keep this .gitignore file itself
 !.gitignore
 ./extra_scripts
+!push.sh

@@ -4,7 +4,7 @@
 
 ## What's new
 [2025-09] We propose **PRISM**, which inherits the multi-view distillation framework of CTSL from **Stage I** and incorporates medical text as prompts in **Stage II** to form a multimodal aggregation.  
-[2025-07] We have publicly released the SSL scripts of the CTSL framework for **Stage I** and **Stage II**.
+[2025-07] We have publicly released the SSL scripts of the CTSL framework for **Stage I** and **Stage II** and the survival prediction scripts for **Stage III**.
 
 
 ## Table of Contents
